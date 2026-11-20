@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Settings and Quit are now icon buttons beside Refresh at the top of the menu, with their
+  names and shortcuts as tooltips. The bar at the bottom of the menu is gone.
+
 ## 0.1.2
 
 - Menu bar managers such as Thaw and Bartender can now move the icon. The status item has a

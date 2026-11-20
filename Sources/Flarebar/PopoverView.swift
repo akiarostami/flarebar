@@ -10,7 +10,6 @@ struct PopoverView: View {
         VStack(spacing: 0) {
             header
             content
-            footer
         }
         .frame(width: 372)
         .fontDesign(.rounded)
@@ -41,22 +40,16 @@ struct PopoverView: View {
                 }
             }
             Spacer()
-            Button {
+            HeaderButton(symbol: "arrow.clockwise", help: "Refresh now", isBusy: model.isRefreshing) {
                 Task { await model.refresh(force: true) }
-            } label: {
-                Group {
-                    if model.isRefreshing {
-                        ProgressView().controlSize(.small)
-                    } else {
-                        Image(systemName: "arrow.clockwise").font(.system(size: 11, weight: .semibold))
-                    }
-                }
-                .frame(width: 26, height: 26)
-                .background(Color.primary.opacity(0.07), in: Circle())
             }
-            .buttonStyle(.plain)
             .disabled(model.isRefreshing)
-            .help("Refresh now")
+            HeaderButton(symbol: "gearshape.fill", help: "Settings (⌘,)") {
+                model.openSettings(model.settingsPane)
+            }
+            HeaderButton(symbol: "power", help: "Quit Flarebar (⌘Q)") {
+                NSApp.terminate(nil)
+            }
         }
         .padding(.horizontal, 16)
         .padding(.top, 14)
@@ -77,7 +70,7 @@ struct PopoverView: View {
                     }
                     .padding(.horizontal, 12)
                     .padding(.top, 2)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 12)
                 }
                 .scrollIndicators(.never)
                 .frame(maxHeight: 540)
@@ -107,46 +100,34 @@ struct PopoverView: View {
         .frame(maxWidth: .infinity)
         .padding(.vertical, 40)
     }
-
-    private var footer: some View {
-        HStack(spacing: 8) {
-            FooterButton(title: "Settings", symbol: "gearshape.fill", hint: "⌘,") {
-                model.openSettings(model.settingsPane)
-            }
-            Spacer()
-            FooterButton(title: "Quit", symbol: "power", hint: "⌘Q") {
-                NSApp.terminate(nil)
-            }
-        }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 10)
-        .background(Color.primary.opacity(0.04))
-    }
 }
 
-/// A quiet pill button for the bottom of the menu, with its keyboard shortcut.
-private struct FooterButton: View {
-    let title: String
+/// A round icon button for the top of the menu. Its name is shown as a tooltip.
+private struct HeaderButton: View {
     let symbol: String
-    let hint: String
+    let help: String
+    var isBusy = false
     let action: () -> Void
     @State private var isHovered = false
 
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 6) {
-                Image(systemName: symbol).font(.system(size: 11, weight: .semibold))
-                Text(title).font(.callout.weight(.medium))
-                Text(hint).font(.caption).foregroundStyle(.tertiary)
+            Group {
+                if isBusy {
+                    ProgressView().controlSize(.small)
+                } else {
+                    Image(systemName: symbol).font(.system(size: 11, weight: .semibold))
+                }
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 5)
-            .background(Color.primary.opacity(isHovered ? 0.1 : 0), in: Capsule())
-            .contentShape(Capsule())
+            .frame(width: 26, height: 26)
+            .background(Color.primary.opacity(isHovered ? 0.14 : 0.07), in: Circle())
+            .contentShape(Circle())
         }
         .buttonStyle(.plain)
         .foregroundStyle(.secondary)
         .onHover { isHovered = $0 }
+        .help(help)
+        .accessibilityLabel(help)
     }
 }
 
