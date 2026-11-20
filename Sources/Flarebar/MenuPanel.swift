@@ -8,7 +8,13 @@ enum DebugLog {
     /// Saves a picture of a view as a PNG, for checking layouts without looking at the screen.
     @MainActor
     static func snapshot(_ view: NSView?, to path: String) {
-        guard let view, let rep = view.bitmapImageRepForCachingDisplay(in: view.bounds) else { return }
+        // Always at twice the point size, so pictures are sharp whichever display the window is on.
+        guard let view, view.bounds.width > 0, view.bounds.height > 0,
+              let rep = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: Int(view.bounds.width * 2),
+                                         pixelsHigh: Int(view.bounds.height * 2), bitsPerSample: 8,
+                                         samplesPerPixel: 4, hasAlpha: true, isPlanar: false,
+                                         colorSpaceName: .deviceRGB, bytesPerRow: 0, bitsPerPixel: 0) else { return }
+        rep.size = view.bounds.size
         view.cacheDisplay(in: view.bounds, to: rep)
         try? rep.representation(using: .png, properties: [:])?.write(to: URL(fileURLWithPath: path))
     }
