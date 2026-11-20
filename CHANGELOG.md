@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.1
 
 - The menu opens without taking focus from the app in front.
 - With a signing certificate, the app owns its Keychain item, so macOS no longer asks for

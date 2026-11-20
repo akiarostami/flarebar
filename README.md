@@ -18,7 +18,7 @@ does not tell you which of them is using the allowance. Flarebar groups your Wor
 databases, KV namespaces, R2 buckets and Durable Objects into projects by name prefix, and
 shows each project's share.
 
-Version 0.1.0. A personal tool, not affiliated with or endorsed by Cloudflare.
+Version 0.1.1. A personal tool, not affiliated with or endorsed by Cloudflare.
 
 ## What it shows
 
