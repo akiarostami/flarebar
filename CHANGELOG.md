@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- The menu opens without taking focus from the app in front.
+- With a signing certificate, the app owns its Keychain item, so macOS no longer asks for
+  the login password when it starts. The build script re-creates the item only for unsigned
+  builds.
+- The bundle identifier is now `com.minorkey.flarebar`. Preferences saved under the old
+  identifier (shortcut, colour levels, launch at login) are not carried over.
+
 ## 0.1.0
 
 First version.
