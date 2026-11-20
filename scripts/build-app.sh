@@ -9,7 +9,7 @@ swift build -c release
 BIN="$(swift build -c release --show-bin-path)/Flarebar"
 
 # Replace a running copy.
-osascript -e 'tell application id "com.selftools.flarebar" to quit' >/dev/null 2>&1 || true
+osascript -e 'tell application id "com.minorkey.flarebar" to quit' >/dev/null 2>&1 || true
 
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
@@ -22,7 +22,7 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
 <dict>
     <key>CFBundleExecutable</key><string>Flarebar</string>
     <key>CFBundleIconFile</key><string>AppIcon</string>
-    <key>CFBundleIdentifier</key><string>com.selftools.flarebar</string>
+    <key>CFBundleIdentifier</key><string>com.minorkey.flarebar</string>
     <key>CFBundleName</key><string>Flarebar</string>
     <key>CFBundleDisplayName</key><string>Flarebar</string>
     <key>CFBundlePackageType</key><string>APPL</string>
