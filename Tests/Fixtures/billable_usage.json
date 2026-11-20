@@ -1,0 +1,6 @@
+{ "success": true, "errors": [], "result": [
+  { "BillingPeriodStart": "2026-10-05T00:00:00Z", "ContractedCost": 9.99, "ServiceFamilyName": "Workers", "ServiceName": "Workers Requests" },
+  { "BillingPeriodStart": "2026-11-05T00:00:00Z", "ContractedCost": 10.25, "ServiceFamilyName": "Containers", "ServiceName": "Container Memory, per GiB-Second (First 25 GiB-hours included)" },
+  { "BillingPeriodStart": "2026-11-05T00:00:00Z", "ContractedCost": 2.0, "ServiceFamilyName": "Containers", "ServiceName": "Container Disk, per GB-second" },
+  { "BillingPeriodStart": "2026-11-05T00:00:00Z", "ContractedCost": 0.15, "ServiceFamilyName": "R2", "ServiceName": "R2 Storage (Standard)" }
+] }

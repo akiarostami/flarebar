@@ -1,0 +1,103 @@
+{
+  "now": "2026-11-19T12:00:00Z",
+  "month_start": "2026-11-05",
+  "paid": {
+    "Shop": {
+      "req": 240000,
+      "r2_a": 300,
+      "r2_b": 4000,
+      "r2_gb": 2.0,
+      "d1_read": 2000000,
+      "d1_written": 20000,
+      "kv_read": 30000,
+      "do_req": 12000
+    },
+    "Blog": {
+      "req": 25000,
+      "r2_a": 25,
+      "r2_b": 600,
+      "r2_gb": 0.75,
+      "d1_read": 50000,
+      "d1_written": 300,
+      "kv_read": 2000,
+      "do_req": 0
+    },
+    "Shop API": {
+      "req": 150000,
+      "r2_a": 0,
+      "r2_b": 0,
+      "r2_gb": 0.0,
+      "d1_read": 0,
+      "d1_written": 0,
+      "kv_read": 0,
+      "do_req": 12000
+    }
+  },
+  "free": {
+    "Shop": {
+      "req": 8000,
+      "r2_a": 300,
+      "r2_b": 4000,
+      "r2_gb": 2.0,
+      "d1_read": 40000,
+      "d1_written": 500,
+      "kv_read": 900,
+      "do_req": 400
+    },
+    "Blog": {
+      "req": 1000,
+      "r2_a": 25,
+      "r2_b": 600,
+      "r2_gb": 0.75,
+      "d1_read": 1000,
+      "d1_written": 10,
+      "kv_read": 50,
+      "do_req": 0
+    },
+    "Shop API": {
+      "req": 5000,
+      "r2_a": 0,
+      "r2_b": 0,
+      "r2_gb": 0.0,
+      "d1_read": 0,
+      "d1_written": 0,
+      "kv_read": 0,
+      "do_req": 400
+    }
+  },
+  "bill_paid": {
+    "usage_usd": 12.4,
+    "subs_usd": 5.0,
+    "total_usd": 17.4,
+    "period_start": "2026-11-05"
+  },
+  "headline_paid": "Shop R2 20% · $17.40",
+  "headline_free": "Shop R2 20% · $12.40",
+  "other_workers": [
+    "misc-tool"
+  ],
+  "shop_workers_newest_first": [
+    "shop-api",
+    "shop-web"
+  ],
+  "other_paid": {
+    "req": 1000,
+    "r2_a": 0,
+    "r2_b": 0,
+    "r2_gb": 0.0,
+    "d1_read": 0,
+    "d1_written": 0,
+    "kv_read": 0,
+    "do_req": 0
+  },
+  "other_free": {
+    "req": 100,
+    "r2_a": 0,
+    "r2_b": 0,
+    "r2_gb": 0.0,
+    "d1_read": 7,
+    "d1_written": 1,
+    "kv_read": 0,
+    "do_req": 0
+  }
+}

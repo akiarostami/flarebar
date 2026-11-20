@@ -1,0 +1,7 @@
+{ "success": true, "errors": [], "result": [
+  { "id": "www-landing", "modified_on": "2026-09-01T08:00:00.000000Z", "last_deployed_from": "wrangler" },
+  { "id": "shop-api", "modified_on": "2026-11-18T10:00:00.123456Z", "last_deployed_from": "wrangler" },
+  { "id": "misc-tool", "modified_on": "2026-11-01T09:30:00Z", "last_deployed_from": "wrangler" },
+  { "id": "shop-web", "modified_on": "2026-11-10T10:00:00.5Z", "last_deployed_from": "wrangler" },
+  { "id": "blog-site", "modified_on": "2026-10-01T12:00:00Z", "last_deployed_from": "dash" }
+] }

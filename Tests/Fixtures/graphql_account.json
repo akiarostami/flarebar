@@ -1,0 +1,56 @@
+{
+  "data": { "viewer": { "accounts": [ {
+    "workers": [
+      { "sum": { "requests": 5000 }, "dimensions": { "scriptName": "shop-api" } },
+      { "sum": { "requests": 3000 }, "dimensions": { "scriptName": "shop-web" } },
+      { "sum": { "requests": 800 }, "dimensions": { "scriptName": "blog-site" } },
+      { "sum": { "requests": 200 }, "dimensions": { "scriptName": "www-landing" } },
+      { "sum": { "requests": 100 }, "dimensions": { "scriptName": "misc-tool" } }
+    ],
+    "workersMonth": [
+      { "sum": { "requests": 150000 }, "dimensions": { "scriptName": "shop-api" } },
+      { "sum": { "requests": 90000 }, "dimensions": { "scriptName": "shop-web" } },
+      { "sum": { "requests": 20000 }, "dimensions": { "scriptName": "blog-site" } },
+      { "sum": { "requests": 5000 }, "dimensions": { "scriptName": "www-landing" } },
+      { "sum": { "requests": 1000 }, "dimensions": { "scriptName": "misc-tool" } }
+    ],
+    "d1": [
+      { "sum": { "rowsRead": 40000, "rowsWritten": 500 }, "dimensions": { "databaseId": "db-shop" } },
+      { "sum": { "rowsRead": 1000, "rowsWritten": 10 }, "dimensions": { "databaseId": "db-blog" } },
+      { "sum": { "rowsRead": 7, "rowsWritten": 1 }, "dimensions": { "databaseId": "db-unknown" } }
+    ],
+    "d1Month": [
+      { "sum": { "rowsRead": 2000000, "rowsWritten": 20000 }, "dimensions": { "databaseId": "db-shop" } },
+      { "sum": { "rowsRead": 50000, "rowsWritten": 300 }, "dimensions": { "databaseId": "db-blog" } }
+    ],
+    "kv": [
+      { "sum": { "requests": 900 }, "dimensions": { "namespaceId": "kv-shop" } },
+      { "sum": { "requests": 50 }, "dimensions": { "namespaceId": "kv-blog" } }
+    ],
+    "kvMonth": [
+      { "sum": { "requests": 30000 }, "dimensions": { "namespaceId": "kv-shop" } },
+      { "sum": { "requests": 2000 }, "dimensions": { "namespaceId": "kv-blog" } }
+    ],
+    "durableObjects": [
+      { "sum": { "requests": 400 }, "dimensions": { "namespaceId": "do-1" } }
+    ],
+    "durableObjectsMonth": [
+      { "sum": { "requests": 12000 }, "dimensions": { "namespaceId": "do-1" } }
+    ],
+    "r2Ops": [
+      { "sum": { "requests": 300 }, "dimensions": { "actionType": "PutObject", "bucketName": "shop-www-assets" } },
+      { "sum": { "requests": 4000 }, "dimensions": { "actionType": "GetObject", "bucketName": "shop-www-assets" } },
+      { "sum": { "requests": 50 }, "dimensions": { "actionType": "DeleteObject", "bucketName": "shop-www-assets" } },
+      { "sum": { "requests": 9 }, "dimensions": { "actionType": "WeirdAction", "bucketName": "shop-www-assets" } },
+      { "sum": { "requests": 20 }, "dimensions": { "actionType": "ListObjects", "bucketName": "blog-media" } },
+      { "sum": { "requests": 600 }, "dimensions": { "actionType": "GetObject", "bucketName": "blog-media" } },
+      { "sum": { "requests": 5 }, "dimensions": { "actionType": "PutObject", "bucketName": "www-shop" } }
+    ],
+    "r2Storage": [
+      { "max": { "payloadSize": 2000000000 }, "dimensions": { "bucketName": "shop-www-assets", "datetime": "2026-11-19T11:00:00Z" } },
+      { "max": { "payloadSize": 500000000 }, "dimensions": { "bucketName": "blog-media", "datetime": "2026-11-19T11:00:00Z" } },
+      { "max": { "payloadSize": 250000000 }, "dimensions": { "bucketName": "www-shop", "datetime": "2026-11-19T11:00:00Z" } },
+      { "max": { "payloadSize": 1500000000 }, "dimensions": { "bucketName": "shop-www-assets", "datetime": "2026-11-18T11:00:00Z" } }
+    ]
+  } ] } }
+}

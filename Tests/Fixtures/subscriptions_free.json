@@ -1,0 +1,3 @@
+{ "success": true, "errors": [], "result": [
+  { "price": 0, "frequency": "monthly", "rate_plan": { "public_name": "Free Website" } }
+] }

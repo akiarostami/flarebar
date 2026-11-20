@@ -1,0 +1,13 @@
+{
+  "accounts": [
+    {
+      "id": "0123456789abcdef0123456789abcdef",
+      "name": "Example",
+      "projects": [
+        { "name": "Shop", "prefixes": ["shop-"] },
+        { "name": "Blog", "prefixes": ["blog-", "www-"] },
+        { "name": "Shop API", "prefixes": ["shop-a"] }
+      ]
+    }
+  ]
+}

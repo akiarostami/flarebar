@@ -1,0 +1,5 @@
+{
+  "d1": { "db-shop": "shop-db", "db-blog": "blog-db" },
+  "kv": { "kv-shop": "shop-cache", "kv-blog": "www-cache" },
+  "durableObjects": { "do-1": "shop-api" }
+}
