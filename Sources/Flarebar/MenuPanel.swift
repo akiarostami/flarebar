@@ -32,6 +32,7 @@ private final class SizeRelay {
 }
 
 /// A borderless panel that can take keyboard input, unlike a plain borderless window.
+/// With the non-activating style it does so without bringing its app to the front.
 private final class KeyPanel: NSPanel {
     override var canBecomeKey: Bool { true }
     override var canBecomeMain: Bool { false }

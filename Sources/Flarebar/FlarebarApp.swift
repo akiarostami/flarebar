@@ -233,7 +233,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         // The click that opens the menu can also be the one that just closed it (the menu
         // closes as soon as it loses the keyboard); do not reopen it in that case.
         guard Date().timeIntervalSince(menu.lastClosed) > 0.25, let button = statusItem.button else { return }
-        NSApp.activate(ignoringOtherApps: true)
+        // The app is not activated: the menu is a panel that takes the keyboard by itself, so
+        // the app you were in stays in front and gets its focus back when the menu closes.
         model.selectedRow = nil
         menu.show(below: button)
         Task { await model.refresh() }
