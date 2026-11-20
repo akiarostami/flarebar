@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.2
 
 - Menu bar managers such as Thaw and Bartender can now move the icon. The status item has a
   fixed name that matches the one managers see; before, their requests to macOS were filed
