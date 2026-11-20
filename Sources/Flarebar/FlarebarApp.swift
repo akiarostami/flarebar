@@ -44,6 +44,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             self?.model.settingsPane = pane
             self?.showSettings()
         }
+        model.requestQuit = { [weak self] in self?.confirmQuit() }
         menu = MenuPanelController(content: PopoverView().environment(model))
 
         // A menu left open in another Space would swallow the next click on the icon.
@@ -247,6 +248,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     @objc private func closePopover() {
         menu.close()
+    }
+
+    /// Asks before quitting. The Quit button in the menu is a small icon beside two others,
+    /// so a slip should not close the app. Command-Q and the Quit button in Settings are
+    /// deliberate and quit at once.
+    private func confirmQuit() {
+        closePopover()
+        NSApp.activate(ignoringOtherApps: true)
+        let alert = NSAlert()
+        alert.messageText = "Quit Flarebar?"
+        alert.informativeText = "Its icon leaves the menu bar until you open Flarebar again."
+        alert.addButton(withTitle: "Quit")
+        alert.addButton(withTitle: "Cancel")
+        if alert.runModal() == .alertFirstButtonReturn {
+            NSApp.terminate(nil)
+        }
     }
 
     // MARK: Settings

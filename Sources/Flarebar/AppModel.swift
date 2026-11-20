@@ -68,6 +68,8 @@ final class AppModel {
     @ObservationIgnored private var timer: Task<Void, Never>?
     /// Set by the app delegate, which owns the settings window.
     @ObservationIgnored var openSettings: (SettingsPane) -> Void = { _ in }
+    /// Set by the app delegate: asks for confirmation, then quits.
+    @ObservationIgnored var requestQuit: () -> Void = {}
 
     init() {
         config = (try? configStore.load()) ?? Config()

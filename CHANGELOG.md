@@ -3,7 +3,8 @@
 ## Unreleased
 
 - Settings and Quit are now icon buttons beside Refresh at the top of the menu, with their
-  names and shortcuts as tooltips. The bar at the bottom of the menu is gone.
+  names and shortcuts as tooltips. The bar at the bottom of the menu is gone. The Quit
+  button asks for confirmation first; ⌘Q and the Quit button in Settings do not.
 
 ## 0.1.2
 

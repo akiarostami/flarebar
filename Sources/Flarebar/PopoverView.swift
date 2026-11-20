@@ -48,7 +48,7 @@ struct PopoverView: View {
                 model.openSettings(model.settingsPane)
             }
             HeaderButton(symbol: "power", help: "Quit Flarebar (⌘Q)") {
-                NSApp.terminate(nil)
+                model.requestQuit()
             }
         }
         .padding(.horizontal, 16)
