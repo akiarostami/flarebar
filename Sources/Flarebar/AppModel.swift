@@ -91,6 +91,11 @@ final class AppModel {
             lastRefresh = Date()
             return
         }
+        // Once: re-create the Keychain item from this app, so macOS stops asking for the
+        // login password on every launch. Earlier builds had the build script create it.
+        if !defaults.bool(forKey: "keychainItemOwned"), tokenStore.takeOwnership() {
+            defaults.set(true, forKey: "keychainItemOwned")
+        }
         tokens = tokenStore.readAll().map { SavedToken(value: $0) }
         for snapshot in cache.load() {
             snapshots[snapshot.accountID] = snapshot

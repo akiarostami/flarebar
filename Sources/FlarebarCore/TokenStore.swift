@@ -55,6 +55,22 @@ public struct TokenStore: Sendable {
         }
     }
 
+    /// Deletes the item and adds it again from this app, which makes this app its owner.
+    /// An item created by another program (such as the `security` tool) asks for the login
+    /// password whenever this app reads it; one this app created does not.
+    /// Returns false when the item could not be read, in which case nothing is changed.
+    @discardableResult
+    public func takeOwnership() -> Bool {
+        guard let value = read() else { return false }
+        delete()
+        do {
+            try save(value)
+            return true
+        } catch {
+            return false
+        }
+    }
+
     public func delete() {
         SecItemDelete(query as CFDictionary)
     }

@@ -47,9 +47,10 @@ else
 fi
 if [ "$IDENTITY" = "-" ]; then echo "Signed ad hoc (no certificate found)"; else echo "Signed with: $IDENTITY"; fi
 
-# The Keychain item's access list names the app by its signature, which changes with every
-# ad hoc build. Re-create the item for the new build so macOS does not ask again.
-if TOKENS="$(security find-generic-password -s flarebar -a token -w 2>/dev/null)" && [ -n "$TOKENS" ]; then
+# An ad hoc signature changes with every build, and the Keychain item's access list names
+# the app by its signature, so re-create the item for the new build. With a real certificate
+# the app's identity is stable and the app owns its item; leave it alone.
+if [ "$IDENTITY" = "-" ] && TOKENS="$(security find-generic-password -s flarebar -a token -w 2>/dev/null)" && [ -n "$TOKENS" ]; then
     security delete-generic-password -s flarebar -a token >/dev/null 2>&1 || true
     # Passed on stdin, so the tokens never appear in a process list.
     printf 'add-generic-password -U -s flarebar -a token -T "%s" -T /usr/bin/security -w "%s"\n' "$APP" "$TOKENS" \

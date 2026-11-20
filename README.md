@@ -146,9 +146,11 @@ With the menu open:
 ## Signing
 
 The build script signs with the first code-signing certificate in your Keychain, or the one
-named in `FLAREBAR_SIGN_IDENTITY`. With none it signs ad hoc: the app runs, but its
-signature changes with every build, so macOS may ask again for Keychain access after a
-rebuild. Choose **Always Allow**.
+named in `FLAREBAR_SIGN_IDENTITY`. With a certificate the app has a stable identity and
+owns its Keychain item, so macOS does not ask for Keychain access.
+
+With none it signs ad hoc: the app runs, but its signature changes with every build, so
+macOS may ask for Keychain access after a rebuild. Choose **Always Allow**.
 
 A free **Apple Development** certificate avoids that. Create one in Xcode under
 Settings → Accounts → Manage Certificates.
