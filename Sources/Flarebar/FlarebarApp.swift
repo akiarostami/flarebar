@@ -29,6 +29,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        // A fixed name, set once. macOS files the item's position under this name, and menu bar
+        // managers identify the item by the name they can see, which comes from the icon's
+        // accessibility description ("Flarebar"). Left at the default ("Item-0") the two differ,
+        // and a manager's request to move the item is filed under a name macOS does not know.
+        statusItem.autosaveName = "Flarebar"
         if let button = statusItem.button {
             button.target = self
             button.action = #selector(togglePopover)
